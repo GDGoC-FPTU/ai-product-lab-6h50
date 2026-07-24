@@ -15,6 +15,9 @@ import sys
 import time
 from typing import Any
 
+# Force Python UTF-8 mode where possible.
+os.environ.setdefault("PYTHONUTF8", "1")
+
 # Ensure UTF-8 output on Windows consoles and redirected streams.
 if hasattr(sys.stdout, "reconfigure"):
     try:
