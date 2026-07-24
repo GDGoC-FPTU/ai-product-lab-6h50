@@ -23,7 +23,6 @@ Mở terminal tại thư mục gốc của dự án (`VinUni_Day02-AI-Product-La
 
 ### 🔌 Bước 2: Kích hoạt (Activate) môi trường ảo
 Bạn phải kích hoạt môi trường ảo mỗi khi mở terminal mới trước khi chạy code.
-
 *   **Windows (PowerShell):**
     ```powershell
     .venv\Scripts\Activate.ps1
