@@ -15,6 +15,21 @@ import sys
 import time
 from typing import Any
 
+# Ensure UTF-8 output on Windows consoles and redirected streams.
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+else:
+    try:
+        import io
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 from google import genai
 from google.genai import types
 
@@ -134,7 +149,7 @@ if __name__ == "__main__":
         print("Falling back to deterministic local policy for safe boundary testing.\n")
         
     print("\033[94m==================================================")
-    print("🚀 Vin Smart Future — Programmatic Boundary Stress-Testing")
+    print("[INFO] Vin Smart Future - Programmatic Boundary Stress-Testing")
     print("Standard Model: Google Gemini 2.5 Flash")
     print("==================================================\033[0m\n")
     
